@@ -13,3 +13,12 @@ getHeader_menu_btn.onclick=function(){
     getNav_sm.classList.toggle('fade-in-down');
 }
 
+getOverlay_menu.onclick=function(){
+    getHeader_menu_btn.classList.remove('menu-btn-open');
+    getOverlay_menu.classList.remove('fade-in');
+    getOverlay_menu.classList.add('fade-out');
+
+    getNav_sm.classList.remove('fade-in-down');
+    getNav_sm.classList.add('fade-out-up');
+}
+

@@ -2,6 +2,7 @@ html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *, *::before, *::after {
@@ -74,6 +75,10 @@ button, .button {
   }
 }
 
+.h-100 {
+  height: 100vh;
+}
+
 .fade-out {
   opacity: 0;
   visibility: hidden;
@@ -128,6 +133,7 @@ button, .button {
   display: block;
   width: 26px;
   height: 2px;
+  cursor: pointer;
   background-color: #2d314d;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
