@@ -14,10 +14,9 @@
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
-    <!-- Header Starts -->
-    <header class="header">
-        <!-- Menu Background Overlay -->
-        <div class="menu-overlay"></div>
+    <!-- Header Starts 
+         _header.scss -->
+    <header class="header">  
         <!-- Navbar -->
         <nav class="flex flex-jc-sb flex-ai-c">
             <!-- Logo -->
@@ -51,9 +50,12 @@
             <!-- CTA Button -->
             <a class="button header__cta hide-for-mobile">Request Invite</a>
         </nav>
-
+    </header>    
+    <!-- Menu Background Overlay -->
+    <div class="menu-overlay fade-out">
+        <!-- Header Nav for Mobile Tablet-->
         <div class="header__sm-nav hide-for-desktop">
-            <ul class="sm-nav-wrapper">
+            <ul class="sm-nav-wrapper fade-out-up">
                 <li>
                     <a href="#">Home</a>
                 </li>
@@ -71,7 +73,7 @@
                 </li>
             </ul>
         </div>
-    </header>    
+    </div>
     <!-- Header Ends -->
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente veniam totam error repudiandae provident, quae delectus, nulla assumenda molestiae, odio adipisci repellendus tempore aliquid minus vel cumque quaerat temporibus minima?</p>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel soluta, voluptatibus quas fuga tempore neque fugit alias quod itaque velit laboriosam architecto ipsum facere eligendi saepe unde modi aliquid hic.</p>

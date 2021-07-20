@@ -1,49 +1,21 @@
-// Animate Overlay
-@keyframes fade-in {
-    from{
-        opacity: 0;
-        visibility: hidden;
-    }
-    to{
-        visibility: visible;
-        opacity: 1;
-    }
+// Animate classes for Overlay and sm-nav
+
+.fade-out{
+    opacity: 0;
+    visibility: hidden;
+}
+.fade-in{
+    visibility: visible;
+    opacity: 1;
 }
 
-@keyframes fade-out {
-    from{
-        opacity: 1;
-        visibility: visible;
-    }
-    to{
-        visibility: hidden;
-        opacity: 0;
-    }
+.fade-out-up{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-300px);
 }
-
-// Drop In
-@keyframes fade-in-down {
-    from{
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-300px);
-    }
-    to{
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fade-out-up {
-    from{
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-    to{
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-300px);
-    }
+.fade-in-down{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
