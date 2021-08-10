@@ -1,0 +1,38 @@
+.hero{
+    margin-top: 4.375rem;
+
+    &__img{
+        position: relative;
+        background-image: url(../img/bg-intro-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        min-height: 17.5rem;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(../img/image-mockups.png);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: 93%;
+        }
+    }
+
+    &__text{
+        text-align: center;
+        h1{
+            font-weight: 300;
+            color: $darkBlue;
+            font-size: 2.31rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        p{
+            line-height: 1.5;
+            margin-bottom: 2.25rem;
+        }
+    }
+}

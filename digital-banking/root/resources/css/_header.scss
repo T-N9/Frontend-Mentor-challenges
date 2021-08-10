@@ -37,14 +37,20 @@
     }
 
     &__links{
-
+        margin: 0;
+        padding: 0;
+        height: 3.375rem;
         > li{
             list-style-type: none;
             a{
+                position: relative;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
                 font-size: $font-sm;
                 color: $grayishBlue;
                 transition: color 200ms ease-in-out;
-                position: relative;
+                height: 100%;
 
                 &::after{
                     content: "";
@@ -54,7 +60,7 @@
                     display: block;
                     left: 0;
                     right: 0;
-                    bottom: -1.9375rem;
+                    bottom: -0.75rem;
                     background: linear-gradient( to right, $limeGreen, $brightCyan);
                     transition: all 0.3s ease-in-out;
                     transform: scaleX(0);
@@ -72,15 +78,6 @@
             }
         }
     }
-
-    &__cta{
-        font-size: $font-sm;
-        transition: opacity 200ms ease-in-out;
-
-        &:hover{
-            opacity: 0.75;
-        }
-    }
 }
 // Overlay div
 .menu-overlay{
@@ -91,6 +88,7 @@
     height: 100%;
     background-image: linear-gradient( to bottom, $darkBlue, #ffffff50);
     transition: all 200ms ease-in-out;
+    z-index: 500;
 }
 // Header Nav on Mobile and Tablets
 .header__sm-nav{

@@ -19,6 +19,14 @@ body{
     // height: 300vh;
 }
 
+h1, h2, h3{
+    margin-top: 0;
+}
+
+.container{
+    padding: 2.25rem 1.5rem 2.25rem 1.5rem;
+}
+
 a, a:visited, a:hover{
     text-decoration: none;
 }
@@ -29,6 +37,7 @@ a, a:visited, a:hover{
 
 // Button
 button, .button{
+    display: inline-block;
     padding: 0.875rem 2.1875rem;
     background: linear-gradient(to right, $limeGreen, $brightCyan);
     color: $white;
@@ -36,6 +45,12 @@ button, .button{
     border-radius: 50px;
     cursor: pointer;
     font-weight: 700;
+    font-size: $font-sm;
+    transition: opacity 200ms ease-in-out;
+
+    &:hover{
+        opacity: 0.75;
+    }
 }
 
 // Flex
