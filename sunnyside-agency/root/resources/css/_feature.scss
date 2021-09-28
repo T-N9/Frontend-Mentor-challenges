@@ -1,0 +1,103 @@
+.feature{
+    display: grid;
+    grid-template-columns: 1fr;
+    &__item{
+        background-color: slateblue;
+    }
+
+    .text-content{
+        padding: calUni(72px) calUni(30px);
+        text-align: center;
+        background-color: $white;
+
+        h1{
+            color: $veryDarkDesaBlue;
+            font-weight: 900;
+        }
+
+        p{
+            line-height: 1.6;
+            font-size: 16.5px;
+        }
+    }
+
+    .img-content{
+        width: 100%;
+        height: calUni(315px);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__item:nth-child(1){
+        order: 2;
+    }
+    &__item:nth-child(2){
+        order: 1;
+        background-image: url('../img/mobile/image-transform.jpg');
+    }
+    &__item:nth-child(3){
+        order: 3;
+        background-image: url('../img/mobile/image-stand-out.jpg');
+    }
+    &__item:nth-child(4){
+        order: 4;
+    }
+
+    &__btn{
+        position: relative;
+        width: 145px;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        color: $veryDarkDesaBlue;
+        font-size: calUni(14.5px);
+        font-family: $heading-font;
+        font-weight: 900;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 135px;
+            height: 9px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            border-radius: 50px;
+            
+            opacity: 0.5;
+            transition: opacity 200ms ease-out;
+            z-index: 0;
+        }
+
+        &:hover{
+            &::before{
+                opacity: 1;
+            }
+        }
+
+        &.yellow{
+            &::before{
+                background-color: $yellow;
+            }
+        }
+        &.red{
+            &::before{
+                background-color: $softRed;
+            }
+        }
+        &::after{
+            content: "Learn More";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    @include m-breakpoint-up(tab){
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
