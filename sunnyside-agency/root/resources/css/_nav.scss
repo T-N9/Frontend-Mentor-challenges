@@ -1,0 +1,99 @@
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: calUni(37px) calUni(25px);
+    z-index: 3000;
+
+    @include m-breakpoint-up(laptop){
+        padding: calUni(34px) calUni(40px);
+    }
+
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__list{
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+
+        .nav__item{
+            color: $white;
+            font-size: $font-small;
+            transition: all 200ms ease-in;
+    
+            a{
+                display: block;
+                padding: calUni(23px) calUni(32px);
+            }
+    
+            &.active{
+                background-color: $white;
+                color: $veryDarkDesaBlue;
+                font-family: $heading-font;
+                border-radius: 50px;
+                text-transform: uppercase;
+    
+                &:hover{
+                    background-color: rgba( $white, 0.5);
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    &__mobile{
+        position: absolute;
+        width: 85%;
+        top: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style-type: none;
+        padding: 2rem 4rem;
+        background-color: $white;
+        margin-top: 1.3rem;
+
+        .tri{
+            position: absolute;
+            right: 0;
+            top: -27px;
+            background-color: $white;
+            width: 28px;
+            height: 28px;
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+        }
+
+        .nav__item{
+            text-align: center;
+            line-height: 1;
+            padding:calUni(15px) calUni(36px) ;
+
+            &.active{
+                color: $veryDarkDesaBlue;
+                background-color: $yellow;
+                border-radius: 50px;
+                text-transform: uppercase;
+                font-family: $heading-font;
+                padding:calUni(25px) calUni(36px);
+                margin-top: calUni(10px);
+            }
+        }
+    }
+
+    &__btn{
+        span {
+            display: block;
+            width: calUni(26px);
+            height: 2px;
+            background-color: white;
+        }
+
+        span:not(:last-child){
+            margin-bottom: 6px;
+        }
+    }
+}

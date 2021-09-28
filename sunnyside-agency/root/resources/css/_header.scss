@@ -1,0 +1,69 @@
+.header{
+    position: relative;
+
+    background-image: url('../img/mobile/image-header.jpg');
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 3.1125rem;
+    padding-bottom: 12.25rem;
+
+    padding-left: calUni(38px);
+    padding-right: calUni(38px);
+
+    h1{
+        font-size: calUni(35px);
+        text-transform: uppercase;
+        color: $white;
+        text-align: center;
+        margin-top: calUni(62px);
+        margin-bottom: calUni(62px);
+        letter-spacing: 7px;
+
+        @include m-breakpoint-up(laptop){
+            font-size: calUni(45px);
+        }
+    }
+
+    &__down{
+        position: absolute;
+        bottom: 7rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include m-breakpoint-up(tab){
+            bottom: 17rem;
+        }
+
+        @include m-breakpoint-up(ltab){
+            bottom: 24rem;
+        }
+        @include m-breakpoint-up(laptop){
+            bottom: 18rem;
+        }
+    }
+
+    @include m-breakpoint-up(tab){
+        padding-top: 5.8125rem;
+        padding-bottom: 24.25rem;
+        background-position: center bottom;
+    }
+
+    @include m-breakpoint-up(ltab){
+        padding-top: 7.8125rem;
+        padding-bottom: 31.25rem;
+    }
+
+    @include m-breakpoint-up(laptop){
+        background-image: url('../img/desktop/image-header.jpg');
+        background-position: center bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 6.8125rem;
+        padding-bottom: 25.25rem;
+    }
+
+    @include m-breakpoint-up(llaptop){
+        background-size: 100%;
+    }
+}

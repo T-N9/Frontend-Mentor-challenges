@@ -1,0 +1,50 @@
+html{
+    font-size: 112.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font;
+    font-size: 1rem;
+    color: $veryDarkGrayishBlue;
+}
+
+a, a:visited, a:hover{
+    color: unset;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-family: $heading-font;
+    margin: 0;
+}
+
+// Global classes
+
+.hide-on-desktop{
+    @include m-breakpoint-up(laptop){
+        display: none !important;
+    }
+}
+
+.hide-on-mobile{
+    @include m-breakpoint-down(laptop){
+        display: none !important;
+    }
+}
+
+.d-none{
+    display: none;
+}
+
+.d-block{
+    display: block;
+}
+

@@ -1,0 +1,247 @@
+html {
+  font-size: 112.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Barlow", sans-serif;
+  font-size: 1rem;
+  color: #5a636c;
+}
+
+a, a:visited, a:hover {
+  color: unset;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", serif;
+  margin: 0;
+}
+
+@media (min-width: 85.375em) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 85.3125em) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.3125rem 1.5625rem;
+  z-index: 3000;
+}
+
+@media (min-width: 85.375em) {
+  .nav {
+    padding: 2.125rem 2.5rem;
+  }
+}
+
+.nav__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav__list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+
+.nav__list .nav__item {
+  color: white;
+  font-size: 0.875rem;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.nav__list .nav__item a {
+  display: block;
+  padding: 1.4375rem 2rem;
+}
+
+.nav__list .nav__item.active {
+  background-color: white;
+  color: #23303e;
+  font-family: "Fraunces", serif;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.nav__list .nav__item.active:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.nav__mobile {
+  position: absolute;
+  width: 85%;
+  top: 5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  list-style-type: none;
+  padding: 2rem 4rem;
+  background-color: white;
+  margin-top: 1.3rem;
+}
+
+.nav__mobile .tri {
+  position: absolute;
+  right: 0;
+  top: -27px;
+  background-color: white;
+  width: 28px;
+  height: 28px;
+  -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+          clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+.nav__mobile .nav__item {
+  text-align: center;
+  line-height: 1;
+  padding: 0.9375rem 2.25rem;
+}
+
+.nav__mobile .nav__item.active {
+  color: #23303e;
+  background-color: #fad400;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-family: "Fraunces", serif;
+  padding: 1.5625rem 2.25rem;
+  margin-top: 0.625rem;
+}
+
+.nav__btn span {
+  display: block;
+  width: 1.625rem;
+  height: 2px;
+  background-color: white;
+}
+
+.nav__btn span:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.header {
+  position: relative;
+  background-image: url("../img/mobile/image-header.jpg");
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-top: 3.1125rem;
+  padding-bottom: 12.25rem;
+  padding-left: 2.375rem;
+  padding-right: 2.375rem;
+}
+
+.header h1 {
+  font-size: 2.1875rem;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin-top: 3.875rem;
+  margin-bottom: 3.875rem;
+  letter-spacing: 7px;
+}
+
+@media (min-width: 85.375em) {
+  .header h1 {
+    font-size: 2.8125rem;
+  }
+}
+
+.header__down {
+  position: absolute;
+  bottom: 7rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (min-width: 48em) {
+  .header__down {
+    bottom: 17rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .header__down {
+    bottom: 24rem;
+  }
+}
+
+@media (min-width: 85.375em) {
+  .header__down {
+    bottom: 18rem;
+  }
+}
+
+@media (min-width: 48em) {
+  .header {
+    padding-top: 5.8125rem;
+    padding-bottom: 24.25rem;
+    background-position: center bottom;
+  }
+}
+
+@media (min-width: 64em) {
+  .header {
+    padding-top: 7.8125rem;
+    padding-bottom: 31.25rem;
+  }
+}
+
+@media (min-width: 85.375em) {
+  .header {
+    background-image: url("../img/desktop/image-header.jpg");
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 6.8125rem;
+    padding-bottom: 25.25rem;
+  }
+}
+
+@media (min-width: 90em) {
+  .header {
+    background-size: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
