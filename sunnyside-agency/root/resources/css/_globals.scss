@@ -28,6 +28,9 @@ h1, h2, h3 {
 
 h1{
     font-size: calUni(25px);
+    @include m-breakpoint-up(laptop){
+        font-size: calUni(30px);
+    }
 }
 
 // Global classes
