@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr;
     &__item{
-        background-color: slateblue;
+        
     }
 
     .text-content{
@@ -21,7 +21,16 @@
         }
 
         @include m-breakpoint-up(tab){
+            padding: 10.5rem 7.875rem;
+        }
+
+        @include m-breakpoint-up(ltab){
             text-align: left;
+            padding: 10.5rem 3.5rem;
+        }
+
+        @include m-breakpoint-up(laptop){
+            
             padding: calUni(168px) calUni(120px);
         }
     }
@@ -34,26 +43,93 @@
         background-repeat: no-repeat;
 
         @include m-breakpoint-up(tab){
+            height: 30.6875rem;
+        }
+        @include m-breakpoint-up(ltab){
             height: unset;
         }
     }
 
+    .mix-content{
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        width: 100%;
+        height: calUni(600px);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        
+        padding: 0 calUni(25px);
+        padding-bottom: calUni(50px);
+
+        p{
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        @include m-breakpoint-up(tab){
+            padding: 0 11.5625rem;
+            padding-bottom: 3.125rem;
+        }
+
+        @include m-breakpoint-up(ltab){
+            padding: 0 5rem;
+            padding-bottom: calUni(50px);
+        }
+
+        @include m-breakpoint-up(laptop){
+            height: calUni(595px);
+            padding: 0 10rem;
+            padding-bottom: calUni(63px);
+        }
+
+        
+    }
+
     &__item:nth-child(1){
         order: 2;
-        @include m-breakpoint-up(tab){
+        @include m-breakpoint-up(ltab){
             order: 1;
         }
     }
     &__item:nth-child(2){
         order: 1;
         background-image: url('../img/mobile/image-transform.jpg');
+
+        @include m-breakpoint-up(ltab){
+            background-image: url('../img/desktop/image-transform.jpg');
+        }
     }
     &__item:nth-child(3){
         order: 3;
         background-image: url('../img/mobile/image-stand-out.jpg');
+
+        @include m-breakpoint-up(ltab){
+            background-image: url('../img/desktop/image-stand-out.jpg');
+        }
     }
     &__item:nth-child(4){
         order: 4;
+    }
+    &__item:nth-child(5){
+        color: $darkDesaCyan;
+        order: 5;
+        background-image: url('../img/mobile/image-graphic-design.jpg');
+
+        @include m-breakpoint-up(ltab){
+            background-image: url('../img/desktop/image-graphic-design.jpg');
+        }
+    }
+    &__item:nth-child(6){
+        color: $darkBlue;
+        order: 6;
+        background-image: url('../img/mobile/image-photography.jpg');
+
+        @include m-breakpoint-up(ltab){
+            background-image: url('../img/desktop/image-photography.jpg');
+        }
     }
 
     &__btn{
@@ -114,7 +190,7 @@
         }
     }
 
-    @include m-breakpoint-up(tab){
+    @include m-breakpoint-up(ltab){
         grid-template-columns: repeat(2, 1fr);
     }
 }

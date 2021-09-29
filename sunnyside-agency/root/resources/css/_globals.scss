@@ -33,6 +33,15 @@ h1{
     }
 }
 
+h2{
+    font-size: calUni(22px);
+    font-weight: 900;
+
+    @include m-breakpoint-up(laptop){
+        font-size: calUni(25px);
+    }
+}
+
 // Global classes
 
 .hide-on-desktop{
