@@ -1,0 +1,67 @@
+.testimonial{
+    padding-top: calUni(68px);
+    padding-bottom: calUni(93px);
+
+    @include m-breakpoint-up(laptop){
+        padding: calUni(167px) 6.375rem;
+    }
+
+    h3{
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        color: $grayishBlue;
+    }
+
+    &__wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include m-breakpoint-up(laptop){
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__item{
+        text-align: center;
+        padding: 0 1.4375rem;;
+        padding-top: calUni(68px);
+
+        @include m-breakpoint-up(tab){
+            padding: 0 12.4375rem;
+            padding-top: calUni(68px);
+        }
+
+        @include m-breakpoint-up(laptop){
+            padding: 0 1.4375rem;
+            padding-top: calUni(68px);
+        }
+
+        .pic{
+            width: 73px;
+            height: 73px;
+            border-radius: 50px;
+        }
+
+        .text{
+            line-height: 1.6;
+            font-size: 16.5px;
+            margin: 40px 0;
+            color: $darkGrayishBlue;
+        }
+
+        .name{
+            font-family: $heading-font;
+            color: $veryDarkDesaBlue;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .role{
+            margin: 0;
+            font-size: 14.5px;
+            color: $grayishBlue;
+
+        }
+    }
+}

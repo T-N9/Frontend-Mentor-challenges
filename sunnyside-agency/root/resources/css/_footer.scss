@@ -1,0 +1,63 @@
+.footer{
+    background-color: #90D4C5;
+    text-align: center;
+    padding: calUni(64px) 0;
+
+    @include m-breakpoint-up(tab){
+        padding: calUni(64px) 10rem;
+    }
+
+    @include m-breakpoint-up(laptop){
+        padding: calUni(64px) 25rem;
+    }
+
+    &__logo{
+        transform: scale(1.4);
+    }
+
+    .links{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 1.875rem 0;
+        color: $darkModeCyan;
+
+        a{
+            transition: color 200ms ease-out;
+            &:hover{
+                color: $white;
+            }
+        }
+    }
+
+    .social{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 60%;
+        margin: auto;
+        margin-top: 5rem;
+
+        svg{
+            transform: scale(1.1);
+            .logo-path{
+                transition: fill 200ms ease-out;
+            }
+        }
+
+        a{
+            &:hover{
+                .logo-path{
+                    fill: $white;
+                }
+            }
+        }
+
+        
+    }
+}
+
+.attribution{
+    background-color: #90D4C5;
+    padding: 0.5rem;
+}
