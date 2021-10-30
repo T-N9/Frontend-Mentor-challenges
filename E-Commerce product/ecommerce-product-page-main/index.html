@@ -63,6 +63,7 @@
         <div class="nav--group">
           <button id="user-cart" class="nav--cart">
             <img src="images/icon-cart.svg" alt="Your Cart">
+            <span id="no-items" class="d-none"></span>
           </button>
           
           <div id="user-profile" class="nav--profile">
@@ -76,7 +77,7 @@
         </div>
         <span class="separator"></span>
         <div class="preview-body">
-          <p>Your cart is empty.</p>
+          
         </div>
       </div>
     </header>
@@ -85,8 +86,11 @@
       <div class="product-content">
         <!-- Product Media Lightbox -->
         <div class="product-lightbox">
-          <div class="product-showbox">
-            <div class="max-showbox d-md-none"></div>
+          <div class="showbox-wrapper">
+            <div class="product-showbox">
+              <div class="max-showbox d-md-none"></div>
+              
+            </div>
             <div class="md-prev-btn d-lg-none arr-btn">
               <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path class="arr-path" d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
             </div>
@@ -99,10 +103,10 @@
           </div>
         </div>
         <!-- Product Shopping Purchasing Section -->
-        <div class="product-shopping d-none">
+        <div class="product-shopping">
           <div class="product-detail">
             <p class="company-name">Sneaker Company</p>
-            <h1 class="product-title">Fall Limited Edition Sneakers</h1>
+            <h1 class="product-title"></h1>
             <p>
               These low-profile sneakers are your perfect casual wear companion. Featuring a 
               durable rubber outer sole, they’ll withstand everything the weather can offer.
@@ -113,15 +117,15 @@
               <h2 class="current-price"></h2>
               <span class="discount-percent"></span>
             </div>
-            <p class="origin-price">$250.00</p>
+            <p class="origin-price"></p>
           </div>
           <div class="product-purchase">
             <div class="good-quantity">
-              <button class="reduce-product quantity-btn">
+              <button class="reduce-product quantity-btn" disabled>
                 <img src="./images/icon-minus.svg" alt="reduce-product-quantity">
               </button>
               <span class="num-products">
-                0
+                
               </span>
               <button class="add-product quantity-btn">
                 <img src="./images/icon-plus.svg" alt="add-product-quantity">

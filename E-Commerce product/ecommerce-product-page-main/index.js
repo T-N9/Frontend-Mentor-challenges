@@ -1,24 +1,124 @@
 // --- Product Show Box ---
 const product_thumbnails = document.querySelector('.product-thumbnails');
 const product_showbox = document.querySelector('.product-showbox');
+const product_titleEl = document.querySelector('.product-title');
 
 const currentPriceEl = document.querySelector('.current-price');
 const discountEl = document.querySelector('.discount-percent');
 const originPriceEl = document.querySelector('.origin-price');
+
+const cartPreviewEl = document.querySelector('.cart-preview');
+const previewCartEl = document.querySelector('.preview-body');
 
 // --- Carousel Show Box ---
 const carousel_thumbnails = document.querySelector('.carousel-thumbnails');
 const carousel_showbox = document.querySelector('.carousel-showbox');
 
 // --- Product Price ---
+const noOfItemsEl = document.querySelector('.num-products');
+const reduceProduct = document.querySelector('.reduce-product');
+const addProduct = document.querySelector('.add-product');
+const cartItemBadge = document.querySelector('#no-items');
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+let product_title = "Fall Limited Edition Sneakers";
 let product_price = 250;
 let discount = 50;
 let discount_price = product_price * discount/100;
+let numberItems = 0;
 // console.log(discount_price.toFixed(2));
 
+product_titleEl.textContent = product_title;
 currentPriceEl.innerHTML = `$${discount_price.toFixed(2)}`;
 discountEl.innerHTML = `${discount}%`;
-originPriceEl.innerHTML =  `${product_price.toFixed(2)}`;
+originPriceEl.innerHTML =  `$${product_price.toFixed(2)}`;
+
+noOfItemsEl.innerHTML = numberItems;
+
+
+addProduct.addEventListener('click', () => {
+    numberItems = numberItems +1 ;
+    noOfItemsEl.innerHTML = numberItems;
+    if(numberItems > 0) {
+        reduceProduct.removeAttribute('disabled');
+    }
+
+    return numberItems;
+})
+
+reduceProduct.addEventListener('click', () => {
+    numberItems = numberItems -1 ;
+    noOfItemsEl.innerHTML = numberItems;
+
+    if(numberItems == 0) {
+        reduceProduct.setAttribute('disabled','on');
+    }
+
+    return numberItems;
+})
+
+function cartItemDelete() {
+    console.log('Hello');
+    previewCartEl.innerHTML = `
+        <p>Your cart is empty.</p>
+        `; 
+    // numberItems = 0;
+    cartItemBadge.classList.add('d-none');
+}
+
+function SetPreviewCartEl () {
+    previewCartEl.innerHTML = `
+            <div class="cart-item">
+                <img class="cart-item-img" src="./images/image-product-1-thumbnail.jpg" alt="cart-product-thumbnail"/>
+
+                <div class="cart-item-des">
+                    <p class="cart-item-title">${product_title}</p>
+                    <p class="cart-cal-price">$${discount_price} x ${numberItems} <span class="cart-total-price">$${discount_price * numberItems}</span></p>
+                </div>
+
+                <button onClick="cartItemDelete()" class="cart-item-delete">
+                    <img src="./images/icon-delete.svg" alt="cart item delete"/>
+                </button>
+            </div>
+            <button class="cart-item-checkout">
+                Checkout
+            </button>
+        `;
+}
+
+addToCartBtn.addEventListener('click', (items)=>{
+    items = numberItems;
+    
+    if(items > 0) {
+        cartItemBadge.classList.remove('d-none');
+        cartItemBadge.innerHTML = items;
+
+        SetPreviewCartEl();
+    }else {
+        cartItemBadge.classList.add('d-none');
+
+        previewCartEl.innerHTML = `
+        <p>Your cart is empty.</p>
+        `;        
+    }
+})
+
+
+
+// Cart Toggle Event
+const cartBtn = document.querySelector('.nav--cart');
+
+cartBtn.addEventListener('click', () => {
+    cartPreviewEl.classList.toggle('d-none');
+
+    if(numberItems === 0) {
+        previewCartEl.innerHTML = `
+            <p>Your cart is empty.</p>
+        `;
+    }else {
+        SetPreviewCartEl();
+    }
+})
 
 // --- Show Box and Carousel Thumbnail initializer ---
 for(let i = 1; i < 5; i++){
@@ -286,10 +386,4 @@ document.querySelector('.max-showbox').addEventListener('click', () => {
         carouselOverlayEl.classList.remove('d-none');
     }
     
-})
-
-
-
-
-
-
+});
