@@ -1,12 +1,14 @@
-// --- Product Show Box ---
+// --- Product Show Box Constants ---
 const product_thumbnails = document.querySelector('.product-thumbnails');
 const product_showbox = document.querySelector('.product-showbox');
 const product_titleEl = document.querySelector('.product-title');
 
+// --- Product Shopping Constants ---
 const currentPriceEl = document.querySelector('.current-price');
 const discountEl = document.querySelector('.discount-percent');
 const originPriceEl = document.querySelector('.origin-price');
 
+// --- Cart Preview Constants ---
 const cartPreviewEl = document.querySelector('.cart-preview');
 const previewCartEl = document.querySelector('.preview-body');
 
@@ -14,7 +16,7 @@ const previewCartEl = document.querySelector('.preview-body');
 const carousel_thumbnails = document.querySelector('.carousel-thumbnails');
 const carousel_showbox = document.querySelector('.carousel-showbox');
 
-// --- Product Price ---
+// --- Setting Product Price ---
 const noOfItemsEl = document.querySelector('.num-products');
 const reduceProduct = document.querySelector('.reduce-product');
 const addProduct = document.querySelector('.add-product');
@@ -33,10 +35,12 @@ currentPriceEl.innerHTML = `$${discount_price.toFixed(2)}`;
 discountEl.innerHTML = `${discount}%`;
 originPriceEl.innerHTML =  `$${product_price.toFixed(2)}`;
 
+// --- Add to Cart Btn UX
 noOfItemsEl.innerHTML = numberItems;
 addToCartBtn.classList.add('disable-btn');
 addToCartBtn.setAttribute('disabled','on');
 
+// --- Number of Products Add/ Sub
 addProduct.addEventListener('click', () => {
     numberItems = numberItems +1 ;
     noOfItemsEl.innerHTML = numberItems;
@@ -62,16 +66,23 @@ reduceProduct.addEventListener('click', () => {
     return numberItems;
 })
 
-function cartItemDelete() {
-    console.log('Hello');
+// --- Initialize Empty Cart at Start
+function emptyCart() {
     previewCartEl.innerHTML = `
         <p>Your cart is empty.</p>
-        `; 
-    // numberItems = 0;
-    // noOfItemsEl.innerHTML = 0;
+    `; 
+}
+emptyCart();
+
+
+function cartItemDelete() {
+    emptyCart();
+    
+    // --- Remove Cart Badge at item === 0
     cartItemBadge.classList.add('d-none');
 }
 
+// --- Setting according to number of items and calculate the total SUM
 function SetPreviewCartEl () {
     previewCartEl.innerHTML = `
             <div class="cart-item">
@@ -92,6 +103,7 @@ function SetPreviewCartEl () {
         `;
 }
 
+
 addToCartBtn.addEventListener('click', (items)=>{
     items = numberItems;
     
@@ -103,15 +115,11 @@ addToCartBtn.addEventListener('click', (items)=>{
     }else {
         cartItemBadge.classList.add('d-none');
 
-        previewCartEl.innerHTML = `
-        <p>Your cart is empty.</p>
-        `;        
+        emptyCart();        
     }
 
     if(numberItems === 0) {
-        previewCartEl.innerHTML = `
-            <p>Your cart is empty.</p>
-        `;
+        emptyCart();
     }else {
         SetPreviewCartEl();
     }
@@ -156,11 +164,11 @@ cartBtn.addEventListener('click', () => {
     cartPreviewEl.classList.toggle('active');
     cartPreviewEl.classList.toggle('hidden');
 
-    if(numberItems === 0) {
-        previewCartEl.innerHTML = `
-            <p>Your cart is empty.</p>
-        `;
-    }
+    // if(numberItems === 0) {
+    //     previewCartEl.innerHTML = `
+    //         <p>Your cart is empty.</p>
+    //     `;
+    // }
 })
 
 // --- Show Box and Carousel Thumbnail initializer ---
