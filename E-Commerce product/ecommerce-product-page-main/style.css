@@ -368,6 +368,10 @@ p {
 
 .header .cart-preview .cart-item .cart-item-des{
     font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
 .header .cart-preview .cart-item .cart-item-des .cart-total-price{

@@ -25,7 +25,8 @@ const addProduct = document.querySelector('.add-product');
 const cartItemBadge = document.querySelector('#no-items');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 
-let product_title = "Fall Limited Edition Sneakers";
+let product_title = (window.innerWidth <= 768) ? "Autumn Limited Edition..." : "Fall Limited Edition Sneakers";
+// let product_cartTitle = "Autumn Limited Edition...";
 let product_price = 250;
 let discount = 50;
 let discount_price = product_price * discount/100;
@@ -133,6 +134,8 @@ function cartItemDelete() {
 
 
 addToCartBtn.addEventListener('click', (items)=>{
+    product_title = (window.innerWidth <= 768) ? "Autumn Limited Edition..." : "Fall Limited Edition Sneakers";
+
     // console.log(cartQueue);
     cartQueue.push(numberItems);
     reducer = (prev ,curr) => prev + curr;
@@ -170,7 +173,6 @@ addToCartBtn.addEventListener('click', (items)=>{
     }else {
         SetPreviewCartEl();
     }
-
     // console.log(numberItems, calItem, cartQueue);
 })
 
