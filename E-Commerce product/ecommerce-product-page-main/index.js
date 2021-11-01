@@ -11,6 +11,8 @@ const originPriceEl = document.querySelector('.origin-price');
 // --- Cart Preview Constants ---
 const cartPreviewEl = document.querySelector('.cart-preview');
 const previewCartEl = document.querySelector('.preview-body');
+// const resCartEl = document.querySelector('.cart-items');
+
 
 // --- Carousel Show Box ---
 const carousel_thumbnails = document.querySelector('.carousel-thumbnails');
@@ -74,23 +76,18 @@ function emptyCart() {
 }
 emptyCart();
 
-
-function cartItemDelete() {
-    emptyCart();
-    
-    // --- Remove Cart Badge at item === 0
-    cartItemBadge.classList.add('d-none');
-}
+let calItem;  
 
 // --- Setting according to number of items and calculate the total SUM
 function SetPreviewCartEl () {
+    
     previewCartEl.innerHTML = `
             <div class="cart-item">
                 <img class="cart-item-img" src="./images/image-product-1-thumbnail.jpg" alt="cart-product-thumbnail"/>
 
                 <div class="cart-item-des">
                     <p class="cart-item-title">${product_title}</p>
-                    <p class="cart-cal-price">$${discount_price} x ${numberItems} <span class="cart-total-price">$${discount_price * numberItems}</span></p>
+                    <p class="cart-cal-price">$${discount_price} x ${calItem} <span class="cart-total-price">$${discount_price * calItem}</span></p>
                 </div>
 
                 <button onClick="cartItemDelete()" class="cart-item-delete">
@@ -101,28 +98,80 @@ function SetPreviewCartEl () {
                 Checkout
             </button>
         `;
+    return calItem;
+}
+
+// cart Q for inputted num of Items
+let cartQueue = [];
+let isDel = 0;
+
+// reducing item form Cart when press at a time
+function cartItemDelete() {
+    calItem = calItem-1;
+    // cartQueue.pop();
+    // cartQueue.push(calItem);
+    isDel = 1;
+    if (calItem === 0){
+        cartQueue = [];
+        emptyCart();
+    }else {
+        // numberItems = numberItems -1;
+        SetPreviewCartEl();
+    }
+
+    if(calItem === 0){
+        cartItemBadge.classList.add('d-none');
+    }else{
+        cartItemBadge.innerHTML = calItem;
+    }  
+    // emptyCart();
+    // console.log(numberItems, calItem ,cartQueue);
+    // --- Remove Cart Badge at item === 0
+
 }
 
 
+
 addToCartBtn.addEventListener('click', (items)=>{
-    items = numberItems;
+    // console.log(cartQueue);
+    cartQueue.push(numberItems);
+    reducer = (prev ,curr) => prev + curr;
+
+    items = cartQueue.reduce(reducer);
+    // console.log(items);
     
     if(items > 0) {
         cartItemBadge.classList.remove('d-none');
-        cartItemBadge.innerHTML = items;
+        // cartItemBadge.innerHTML = items;
 
-        SetPreviewCartEl();
+        if(isDel === 1){
+            calItem = calItem+ numberItems;
+            SetPreviewCartEl();
+            cartItemBadge.innerHTML = calItem;
+        }else{
+            calItem = items;
+            SetPreviewCartEl();
+            cartItemBadge.innerHTML = calItem;
+        }
+
+
+        // calItem = items;
+        // SetPreviewCartEl();
     }else {
         cartItemBadge.classList.add('d-none');
 
+        cartQueue=[];
         emptyCart();        
     }
 
     if(numberItems === 0) {
+        cartQueue=[];
         emptyCart();
     }else {
         SetPreviewCartEl();
     }
+
+    // console.log(numberItems, calItem, cartQueue);
 })
 
 // Nav Menu Toggle
